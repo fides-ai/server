@@ -5,19 +5,19 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: fides-api # deployment name
+  name: fides-server # deployment name
   labels:
     app: fides-prod
 spec:
-  replicas: 4 # number of pods
+  replicas: 1 # number of pods
   template:
     metadata:
       labels: # pods label
         app: fides-prod
     spec:
       containers:
-        - name: fides-api  # container name
-          image: us.gcr.io/fides-prod/fides-api:latest # run the image of version latest
+        - name: fides-server # container name
+          image: us.gcr.io/fides-prod/fides-server:latest # run the image of version latest
           imagePullPolicy: Always
           ports:
             - containerPort: 3000 # port used by pods

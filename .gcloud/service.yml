@@ -13,4 +13,4 @@ spec:
     port: 443
     targetPort: 3000
   type: LoadBalancer
-  loadBalancerIP: 35.237.31.240
+  loadBalancerIP: 35.245.17.134 # <- Update IP Here

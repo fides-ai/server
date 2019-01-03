@@ -3,6 +3,6 @@ version: '3'
 services:
   server:
     container_name: server
-    image: us.gcr.io/prod/server:latest
+    image: us.gcr.io/fides-prod/fides-server:latest
     ports:
       - '80:3000'
