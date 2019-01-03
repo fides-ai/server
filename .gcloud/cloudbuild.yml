@@ -6,13 +6,13 @@ steps:
     '--cache-from', 'us.gcr.io/$PROJECT_ID/${_IMAGE}:latest',
     '.' ]
   - name: 'gcr.io/cloud-builders/kubectl'
-    args: ['set', 'image', 'deployment/spree-api', 'spree-api=us.gcr.io/$PROJECT_ID/${_IMAGE}:${_VERSION}']
+    args: ['set', 'image', 'deployment/fides-server', 'fides-server=us.gcr.io/$PROJECT_ID/${_IMAGE}:${_VERSION}']
     env:
-      - CLOUDSDK_COMPUTE_ZONE=us-east1-d
-      - CLOUDSDK_CONTAINER_CLUSTER=spree-api-cluster
+      - CLOUDSDK_COMPUTE_ZONE=us-east4-a
+      - CLOUDSDK_CONTAINER_CLUSTER=fides-server-cluster
 timeout: 1200s
 substitutions:
-  _IMAGE: spree-api
+  _IMAGE: fides-server
   _VERSION: latest
 images:
   - 'us.gcr.io/$PROJECT_ID/${_IMAGE}:${_VERSION}'

@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: spree-api-service
+  name: fides-server-service
 spec:
   selector:
-    app: spree-prod
+    app: fides-prod
   ports:
   - name: http
     port: 80
