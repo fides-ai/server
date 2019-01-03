@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: spree-api-service
+spec:
+  selector:
+    app: spree-prod
+  ports:
+  - name: http
+    port: 80
+    targetPort: 3000
+  - name: https
+    port: 443
+    targetPort: 3000
+  type: LoadBalancer
+  loadBalancerIP: 35.237.31.240

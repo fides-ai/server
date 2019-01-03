@@ -1,0 +1,24 @@
+#
+# deployment.
+#
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: spree-api # deployment name
+  labels:
+    app: spree-prod
+spec:
+  replicas: 4 # number of pods
+  template:
+    metadata:
+      labels: # pods label
+        app: spree-prod
+    spec:
+      containers:
+        - name: spree-api  # container name
+          image: us.gcr.io/spree-prod/spree-api:latest # run the image of version latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000 # port used by pods
+

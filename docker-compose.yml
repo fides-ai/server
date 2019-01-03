@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  server:
+    container_name: server
+    image: us.gcr.io/prod/server:latest
+    ports:
+      - '80:3000'

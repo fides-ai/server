@@ -1,0 +1,19 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build',
+    '--tag', 'us.gcr.io/$PROJECT_ID/${_IMAGE}:${_VERSION}',
+    '--tag', 'us.gcr.io/$PROJECT_ID/${_IMAGE}:latest',
+    '--cache-from', 'us.gcr.io/$PROJECT_ID/${_IMAGE}:latest',
+    '.' ]
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['set', 'image', 'deployment/spree-api', 'spree-api=us.gcr.io/$PROJECT_ID/${_IMAGE}:${_VERSION}']
+    env:
+      - CLOUDSDK_COMPUTE_ZONE=us-east1-d
+      - CLOUDSDK_CONTAINER_CLUSTER=spree-api-cluster
+timeout: 1200s
+substitutions:
+  _IMAGE: spree-api
+  _VERSION: latest
+images:
+  - 'us.gcr.io/$PROJECT_ID/${_IMAGE}:${_VERSION}'
+  - 'us.gcr.io/$PROJECT_ID/${_IMAGE}:latest'

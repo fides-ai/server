@@ -1,0 +1,2 @@
+export DB_USERNAME="app"
+export DB_PASSWORD="PaintTh3MetalP@nda"
