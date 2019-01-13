@@ -1,5 +1,8 @@
 'use strict';
 
+const User = sequelize.define('user', {/* ... */})
+
+
 module.exports = (sequelize, DataTypes) => {
   const Organization = sequelize.define('Organization', {
     id: {
@@ -12,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING
   }, {});
   Organization.associate = (models) => {
-    // associations can be defined here
+    Organization.hasMany(models.Model)
   };
   return Organization;
 };
