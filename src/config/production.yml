@@ -1,4 +1,4 @@
 db:
-  name: "fides"
+  name: "postgres"
   ip: "35.221.37.89"
     

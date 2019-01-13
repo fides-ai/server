@@ -4,26 +4,34 @@ Node JS API services.
 
 ## Prerequisites
 1. Install Node JS
-2. Get `env-vars` secret file
+2. Get `secret.env` secret file
 
 ## Environment
 Set the following environment variables:
-`PROJECT_ID` = `prod`  
-`APP_ID` = `server` 
+```
+NODE_ENV=production|test|dev
+```
 
 ## Build
 
 #### Node JS
 1. `npm install` 
-1. Run `source env-vars`
+1. Run `source secret.env.env`
 1. Test your server with `NODE_ENV=production npm start`
 
 #### Build docker
 1. `docker build . --tag us.gcr.io/fides-prod/fides-server:[VERSION]`  
 *Replace VERSION with semver https://semver.org/ version convention [e.g. 1.0.1]*
-1. Test your docker by running it locally: `source env-vars; docker-compose up`
+1. Test your docker by running it locally: `source secret.env; docker-compose up`
 
 ### Build on GCloud
+
+#### Environment
+Set the following environment variables:
+```
+PROJECT_ID=fides-prod 
+APP_ID=fides-server
+```
 
 #### Setup your environment
 1. Install the [Google Cloud SDK](https://cloud.google.com/sdk/docs/quickstarts), which includes the gcloud command-line tool.
@@ -85,6 +93,8 @@ Or (**much slower**)
 https://github.com/GoogleCloudPlatform/cloud-builders/tree/master/kubectl
 
 ## Migration
+
+Make sure you are running with the current enviornment variables.
 
 1. Create a model `node_modules/.bin/sequelize model:generate --name User --attributes firstName:string,lastName:string,email:string`
 2. Run migrations `node_modules/.bin/sequelize db:migrate`
