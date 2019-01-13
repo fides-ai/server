@@ -4,7 +4,7 @@
 
  'use strict';
 
- const BaseController = require('./base-controller');
+ const BaseController = require('../base-controller');
 
  class TestController extends BaseController {
 
