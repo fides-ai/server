@@ -1,5 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
+  
   const Model = sequelize.define('Model', {
     id: {
       type: DataTypes.UUID,
@@ -14,8 +15,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     version: DataTypes.STRING,
   }, {});
+  
   Model.associate = function(models) {
     Model.belongsTo(models.Organization)
   };
+
   return Model;
 };

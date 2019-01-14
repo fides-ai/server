@@ -10,8 +10,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const responseTime = require('response-time');
 const jsender = require('jsender');
-const responses = require('./responses');
-const routes = require('./routes');
+const Config = require('./config');
 const errorHandler = require('./controllers/errors-controller');
 
 const app = express();
@@ -23,8 +22,7 @@ app.use(jsender());
 app.use(errorHandler);
 
 new Promise.resolve()
-    .then(() => responses.mount(app))
-    .then(() => routes.mount(app))
+    .then(() => config.config(app))
     .then(() => {
         // Start the server
         const PORT = process.env.PORT || 3000;
