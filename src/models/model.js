@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   
   const Model = sequelize.define('Model', {
@@ -12,12 +13,14 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     mode: {
       type: DataTypes.ENUM('classification', 'regression'),
+      allowNull: false
     },
     version: DataTypes.STRING,
   }, {});
   
   Model.associate = function(models) {
-    Model.belongsTo(models.Organization)
+    Model.belongsTo(models.Organization);
+    Model.hasMany(models.ModelFeature);
   };
 
   return Model;

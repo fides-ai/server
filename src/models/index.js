@@ -1,5 +1,5 @@
 /**
- * Created by asafam on 1/9/2019
+ * Created by asafam on 1/9/2019.
  */
 
 'use strict';
@@ -11,7 +11,7 @@ const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/sequelize.js')[env];
 const db = {};
-
+console.log(`Connection to DB user ${process.env.DB_USERNAME}`)
 let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
