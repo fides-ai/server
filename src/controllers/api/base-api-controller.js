@@ -4,7 +4,7 @@
 
 'use strict';
 
-const Base = require('../abstract-resource-controller');
+const AbstractResourceController = require('../abstract-resource-controller');
 
 /**
  * Markup class

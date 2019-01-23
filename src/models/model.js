@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: false,
     },
     name: DataTypes.STRING,
-    mode: {
+    description: DataTypes.STRING,
+    type: {
       type: DataTypes.ENUM('classification', 'regression'),
       allowNull: false
     },

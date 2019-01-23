@@ -112,7 +112,7 @@ See more [here](https://github.com/GoogleCloudPlatform/cloud-builders/tree/maste
 
 Make sure you are running with the current enviornment variables.
 
-1. Create a model `node_modules/.bin/sequelize model:generate --name User --attributes firstName:string,lastName:string,email:string`
+1. Create a model `node_modules/.bin/sequelize migration:generate --name User`
 2. Run migrations `node_modules/.bin/sequelize db:migrate`
 
 see more [here](http://docs.sequelizejs.com/manual/tutorial/migrations.html.)
